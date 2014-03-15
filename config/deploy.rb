@@ -2,7 +2,7 @@
 lock '3.1.0'
 
 set :application, 'resque-sandbox'
-set :repo_url, 'git@example.com:yaauie/resque-sandbox.git'
+set :repo_url, 'git@github.com:yaauie/resque-sandbox.git'
 
 # Default branch is :master
 ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }

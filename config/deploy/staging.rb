@@ -7,6 +7,7 @@
 role :app, %w{yaauie@127.0.0.1}
 role :web, %w{yaauie@127.0.0.1}
 role :db,  %w{yaauie@127.0.0.1}
+role :resque_worker, %w{yaauie@127.0.0.1}
 
 # Extended Server Syntax
 # ======================
