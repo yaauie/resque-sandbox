@@ -21,17 +21,17 @@ task 'resque:setup' do
   puts "setting up... (#{$attempt})"
   require 'resque'
   
-  puts "#{Process.pid}: PING->#{redis_command(Resque.redis, :ping)}" # ensure connected on parent
+  puts "#{Process.pid}: PING->#{redis_command(Resque.redis.client, :ping)}" # ensure connected on parent
 
   # bail on parent, leave child alive.
   if fork
     sleep 3
-    puts "#{Process.pid}: PING->#{redis_command(Resque.redis, :ping)}" # ping on parent
+    puts "#{Process.pid}: PING->#{redis_command(Resque.redis.client, :ping)}" # ping on parent
     puts "#{Process.pid}: dies."
     exit!
   end
 
-  puts "#{Process.pid}: PING->#{redis_command(Resque.redis, :ping)}" # ping on child
+  puts "#{Process.pid}: PING->#{redis_command(Resque.redis.client, :ping)}" # ping on child
   sleep 1
   puts "#{Process.pid}: lives on."
 end
