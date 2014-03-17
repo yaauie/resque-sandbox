@@ -2,13 +2,13 @@
 
 require 'resque/tasks'
 
-def redis_command(redis_client, *args)
+def redis_command(redis, *args)
   $stderr.puts "#{Process.pid}: running #{args.join(', ')}\n"; $stderr.flush
-  $stderr.puts "#{Process.pid}: #{redis_client}(#{redis_client.class})\n" +
-               "  connected: #{redis_client.connected?}\n" +
-               "  connection_pid: #{redis_client.instance_exec { @pid }}\n"
+  $stderr.puts "#{Process.pid}: #{redis.client}(#{redis.client.class})\n" +
+               "  connected: #{redis.client.connected?}\n" +
+               "  connection_pid: #{redis.client.instance_exec { @pid }}\n"
 
-  redis_client.public_send(*args)
+  redis.public_send(*args)
 rescue
   $stderr.puts "#{Process.pid}: raised exception #{$!}\n"; $stderr.flush
   raise
