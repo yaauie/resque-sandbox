@@ -30,8 +30,5 @@ task 'resque:setup' do
     puts "#{Process.pid}: dies."
     exit!
   end
-
-  puts "#{Process.pid}: PING->#{redis_command(Resque.redis, :ping)}" # ping on child
-  sleep 1
   puts "#{Process.pid}: lives on."
 end
