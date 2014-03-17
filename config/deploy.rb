@@ -56,4 +56,7 @@ namespace :deploy do
     end
   end
 
+  task :updated do
+    # no-op
+  end
 end

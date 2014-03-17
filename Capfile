@@ -3,7 +3,6 @@ require 'capistrano/setup'
 
 # Capfile
 require 'capistrano/rbenv'
-require 'capistrano/bundler'
 require 'capistrano-resque'
 
 # config/deploy.rb
@@ -16,6 +15,7 @@ set :rbenv_roles, :all # default value
 
 # Includes default deployment tasks
 require 'capistrano/deploy'
+require 'capistrano/bundler'
 
 # Includes tasks from other gems included in your Gemfile
 #
