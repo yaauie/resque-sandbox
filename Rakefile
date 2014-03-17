@@ -31,9 +31,7 @@ task 'resque:setup' do
     exit!
   end
 
-  debug_connection(Resque.redis.client)
   puts "#{Process.pid}: PING->#{redis_command(Resque.redis, :ping)}" # ping on child
   sleep 1
-  debug_connection(Resque.redis.client)
   puts "#{Process.pid}: lives on."
 end
