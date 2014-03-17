@@ -19,5 +19,5 @@ $attempt ||= 0
 task 'resque:setup' do
   require 'resque'
   
-  puts "#{Process.pid}: PING->#{redis_command(Resque.redis, :ping)}" # ensure connected on parent
+  # puts "#{Process.pid}: PING->#{redis_command(Resque.redis, :ping)}" # ensure connected on parent
 end
