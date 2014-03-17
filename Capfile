@@ -3,6 +3,7 @@ require 'capistrano/setup'
 
 # Capfile
 require 'capistrano/rbenv'
+require 'capistrano/bundler'
 require 'capistrano-resque'
 
 # config/deploy.rb
