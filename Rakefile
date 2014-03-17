@@ -17,7 +17,13 @@ end
 $attempt ||= 0
 
 task 'resque:setup' do
+  $attempt += 1
+  puts "setting up... (#{$attempt})"
   require 'resque'
   
-  # puts "#{Process.pid}: PING->#{redis_command(Resque.redis, :ping)}" # ensure connected on parent
+  puts "#{Process.pid}: PING->#{redis_command(Resque.redis, :ping)}" # ensure connected on parent
+
+  puts "#{Process.pid}: PING->#{redis_command(Resque.redis, :ping)}" # ping on child
+  sleep 1
+  puts "#{Process.pid}: lives on."
 end
