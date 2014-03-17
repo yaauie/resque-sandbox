@@ -9,5 +9,9 @@ task 'resque:setup' do
   puts Resque.redis.ping # ensure connected on parent
 
   # bail on parent, leave child alive.
-  exit! unless fork
+  if fork
+    sleep 3
+    puts 'parent fork dies'
+    exit!
+  end
 end
