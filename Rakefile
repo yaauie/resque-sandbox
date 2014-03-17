@@ -14,7 +14,7 @@ rescue
   raise
 end
 
-$attempt = 0
+$attempt ||= 0
 
 task 'resque:setup' do
   $attempt += 1
@@ -25,7 +25,7 @@ task 'resque:setup' do
 
   # bail on parent, leave child alive.
   if fork
-    sleep 1
+    sleep 3
     puts "#{Process.pid}: PING->#{redis_command(Resque.redis, :ping)}" # ping on parent
     puts "#{Process.pid}: dies."
     exit!
