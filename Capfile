@@ -3,6 +3,7 @@ require 'capistrano/setup'
 
 # Capfile
 require 'capistrano/rbenv'
+require 'capistrano-resque'
 
 # config/deploy.rb
 set :rbenv_type, :user # or :system, depends on your rbenv setup
@@ -35,5 +36,3 @@ require 'capistrano/deploy'
 # Loads custom tasks from `lib/capistrano/tasks' if you have any defined.
 Dir.glob('lib/capistrano/tasks/*.cap').each { |r| import r }
 
-require 'capistrano-resque'
-set :workers, {"high, medium" => 1}

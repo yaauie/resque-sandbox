@@ -9,6 +9,9 @@ role :web, %w{yaauie@127.0.0.1}
 role :db,  %w{yaauie@127.0.0.1}
 role :resque_worker, %w{yaauie@127.0.0.1}
 
+set :workers, {"high,medium" => 2, 'high,low' => 1}
+
+
 # Extended Server Syntax
 # ======================
 # This can be used to drop a more detailed server
